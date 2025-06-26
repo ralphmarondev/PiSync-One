@@ -1,11 +1,16 @@
 package com.ralphmarondev.pisync_one
 
+import android.app.Activity
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.runtime.SideEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.ui.platform.LocalView
+import androidx.core.view.WindowCompat
+import com.ralphmarondev.pisync_one.core.theme.ThemeState
+import org.koin.android.ext.android.get
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -13,13 +18,21 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         setContent {
-            App()
+            val themeState: ThemeState = get()
+            val darkMode = themeState.darkMode.collectAsState().value
+            val view = LocalView.current
+
+            if (!view.isInEditMode) {
+                SideEffect {
+                    val window = (view.context as Activity).window
+                    val insetsController = window?.let {
+                        WindowCompat.getInsetsController(it, view)
+                    }
+                    insetsController?.isAppearanceLightStatusBars = !darkMode
+                }
+            }
+
+            App(themeState = themeState)
         }
     }
-}
-
-@Preview
-@Composable
-fun AppAndroidPreview() {
-    App()
 }
