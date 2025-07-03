@@ -1,16 +1,16 @@
 # 🔐 PiSync-One
 
-**PiSync-One** is an all-in-one smart access control system for condominiums and smart buildings.  
-It enables tenants to unlock doors via mobile or desktop, while administrators manage users, access logs, and devices
+**PiSync-One** is an all-in-one smart access control system for **my home**.
+It enables **family members** to unlock doors via mobile or desktop, while administrators manage users, access logs, and devices
 through a native desktop app—all without needing an internet connection.
 
 Built with **Compose Multiplatform** and **Spring Boot (Kotlin)**, PiSync-One is designed for reliability, offline
-capability, and cross-platform performance.  
+capability, and cross-platform performance.
 The system also integrates with a **Raspberry Pi** for controlling physical lock hardware and biometric authentication.
 
 ![License](https://img.shields.io/badge/license-MIT-purple)
 ![UI](https://img.shields.io/badge/compose-Multiplatform-blueviolet)
-![Backend](https://img.shields.io/badge/backend-Spring%20Boot%20(Kotlin)-green)
+![Backend](<https://img.shields.io/badge/backend-Spring%20Boot%20(Kotlin)-green>)
 ![Security](https://img.shields.io/badge/authentication-JWT-orange)
 ![Offline Support](https://img.shields.io/badge/works-offline-lightgrey)
 
@@ -19,14 +19,12 @@ The system also integrates with a **Raspberry Pi** for controlling physical lock
 ## 📦 Repository Structure
 
 ```
-
 PiSync-One/
 ├── app/             # Compose Multiplatform (Android + Desktop)
 ├── server/          # Spring Boot backend (Kotlin + JWT)
 ├── raspberrypi/     # Scripts to control hardware
 ├── LICENSE.txt
 └── README.md
-
 ```
 
 ---
@@ -35,11 +33,11 @@ PiSync-One/
 
 ### 🧑‍💼 Admin Dashboard (Desktop App)
 
-- View and manage tenants and rooms
+- View and manage **family members** and rooms
 - Review access logs and sync records
 - Works fully offline within a local network
 
-### 🧑 Tenant Mobile App (Android)
+### 📱 Family Member Mobile App (Android)
 
 - Unlock door remotely (within the network)
 - View room status and access logs
@@ -48,7 +46,7 @@ PiSync-One/
 ### 🔐 Secure Backend API (Spring Boot)
 
 - Role-based authentication using JWT
-- Access control endpoints with admin/tenant roles
+- Access control endpoints with admin/**family member** roles
 - Built with Kotlin and PostgreSQL
 
 ### 📡 Raspberry Pi Integration
@@ -111,26 +109,13 @@ cd app
 ## 🧩 Tech Stack
 
 | Layer                | Tech                                              |
-|----------------------|---------------------------------------------------|
+| -------------------- | ------------------------------------------------- |
 | UI                   | Compose Multiplatform (Android + Desktop)         |
 | Backend              | Spring Boot (Kotlin), Spring Security, PostgreSQL |
 | Auth                 | JWT with Role-based Access Control                |
 | Dependency Injection | Koin                                              |
 | Hardware             | Raspberry Pi 5, GPIO, Fingerprint Scanner         |
 | API Testing          | Postman                                           |
-
----
-
-## 📚 Background
-
-**PiSync-One** is a solo-developed, production-ready continuation of a system I originally led as part of my
-undergraduate thesis in Computer Engineering.
-
-The original academic version — developed in collaboration with my thesis group — is archived here:  
-🔗 [Original Pi-Sync Repo](https://github.com/maronworks/pi-sync)
-
-As the lead developer, I’ve since expanded and refined the project using a modern tech stack (Kotlin, Compose
-Multiplatform, Spring Boot), rearchitected for offline support, cross-platform functionality, and real-world deployment.
 
 ---
 
